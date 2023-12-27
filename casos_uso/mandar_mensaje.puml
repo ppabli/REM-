@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+ FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle "Mandar mensaje" {
+   (Mandar mensaje) as mensaje
+
+   V -- mensaje
+
+   mensaje <.. (Adjuntar imagen) : extend
+   (Adjuntar imagen) <.. (Comprimir) : extend
+   mensaje <.. (Adjuntar archivo) : extend
+   mensaje <.. (Elegir destinatario) : include
+}
+
+@enduml

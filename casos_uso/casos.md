@@ -4,18 +4,18 @@ title: Casos de uso
 
 # Casos de uso
 
-- [ ] Registrar usuario
-- [ ] Gestionar perfil
-- [ ] Registrar gasto
-- [ ] Mandar mensaje
-- [ ] Crear grupo de pago
+- [x] Registrar usuario
+- [x] Gestionar perfil
+- [x] Registrar gasto
+- [x] Mandar mensaje
+- [x] Crear grupo de pago
 - [ ] Gestionar métodos de pago
 - [ ] Realizar pago
 - [ ] Borrar usuario
-- [ ] Salir del grupo de pago
-- [ ] Eliminar grupo de pago
+- [x] Salir del grupo de pago
+- [x] Eliminar grupo de pago
 - [ ] Cerrar sesión
 - [ ] Publicar reseña
-- [ ] Gestionar participantes de un grupo
+- [x] Gestionar participantes de un grupo
 - [ ] Reclamar deuda
 - [ ] Iniciar sesión

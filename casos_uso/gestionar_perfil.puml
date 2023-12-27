@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+ FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle "Gestionar perfil" {
+   (Gestionar perfil) as gestionar_perfil
+   (Actualizar datos personales) as actualizar_datos
+   (Modificar contraseña) as modificar_contraseña
+   (Cambiar foto de perfil) as cambiar_foto
+   (Cambiar preferencias de notificaciones) as notificaciones
+   (Borrar usuario) as borrar
+
+   V -- gestionar_perfil
+
+   gestionar_perfil <.. borrar : extend
+   gestionar_perfil <.. actualizar_datos : extend
+   gestionar_perfil <.. modificar_contraseña : extend
+   gestionar_perfil <.. cambiar_foto : extend
+   gestionar_perfil <.. notificaciones : extend
+
+   actualizar_datos <.. (Introducir nuevos datos) : include
+   actualizar_datos <.. (Validar datos) : include
+
+   modificar_contraseña <.. (Introducir nueva contraseña) : include
+   modificar_contraseña <.. (Confirmar nueva contraseña) : include
+
+   borrar <.. (Cerrar sesión) : include
+}
+
+@enduml

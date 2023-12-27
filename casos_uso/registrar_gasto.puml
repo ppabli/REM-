@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+ FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle Pagos {
+  (Registrar gasto) as registrar_gasto
+  (Adjuntar justificante\nde pago) as justificante
+
+  V -- registrar_gasto
+  registrar_gasto <.. justificante : include
+  registrar_gasto <.. (Añadir participantes) : extend
+  registrar_gasto <.. (Establecer fecha) : include
+  registrar_gasto <.. (Introducir descripción) : extend 
+  registrar_gasto <.. (Introducir importe) : include
+}
+
+@enduml

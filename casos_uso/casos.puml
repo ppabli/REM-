@@ -2,7 +2,7 @@
 left to right direction
 
 skinparam dpi 300
-skinparam linetype ortho
+'skinparam linetype ortho
 skinparam nodesep 50
 skinparam ranksep 50
 
@@ -14,8 +14,6 @@ skinparam arrowFontSize 10
 skinparam classFontSize 14
 
 skinparam arrowSize 10
-
-
 
 '''
 
