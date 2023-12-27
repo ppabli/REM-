@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+  FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle Pagos {
+    (Realizar pago) as pagar
+    (Registrar gasto) as registrar_gasto
+    (Eliminar gasto) as eliminar_gasto
+    (Adjuntar justificante\nde pago) as justificante
+    (Consultar saldo) as saldo
+    (Reclamar deuda) as deuda
+    
+    V -- pagar
+    V -- registrar_gasto
+    V -- eliminar_gasto
+    V -- saldo
+    V -- deuda
+    justificante <.. registrar_gasto : include
+}
+
+@enduml

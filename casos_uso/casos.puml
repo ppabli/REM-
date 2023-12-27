@@ -65,7 +65,7 @@ rectangle Grupos {
     salir_grupo <.. eliminar_grupo : extend
 }
 
-rectangle Otros {
+rectangle "Funcionalidades interactivas" {
     (Mandar mensaje) as mensaje
     (Publicar reseña) as reseña
 

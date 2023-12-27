@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+  FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle Grupos {
+    (Gestionar participantes\ndel grupo) as participantes
+    (Crear grupo de pago) as crear_grupo
+    (Eliminar grupo de pago) as eliminar_grupo
+    (Salir del grupo\nde pago) as salir_grupo
+
+    V -- participantes
+    V -- crear_grupo
+    V -- eliminar_grupo
+    V -- salir_grupo
+    salir_grupo <.. eliminar_grupo : extend
+}
+
+@enduml
