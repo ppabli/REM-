@@ -42,6 +42,8 @@ rectangle "Gestionar perfil" {
    modificar_contraseña <.. (Confirmar nueva contraseña) : include
 
    borrar <.. (Cerrar sesión) : include
+   borrar <.. (Eliminar datos) : include
+   borrar <.. (Saldar deudas) : include
 }
 
 @enduml

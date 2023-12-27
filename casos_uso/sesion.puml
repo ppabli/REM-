@@ -1,0 +1,40 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+ FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle "Iniciar sesión" {
+   (Iniciar sesión) as iniciar_sesion
+
+   V -- iniciar_sesion
+
+   iniciar_sesion <.. (Introducir correo) : include
+   iniciar_sesion <.. (Introducir contraseña) : include
+   iniciar_sesion <.. (Verificar datos) : include
+}
+
+rectangle "Cerrar sesión" {
+   (Cerrar sesión) as cerrar_sesion
+
+   V -- cerrar_sesion
+
+   cerrar_sesion <.. (Confirmar cierre de sesión) : include
+}
+
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+'skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+ FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+'''
+
+:V: as "Viajero"
+
+rectangle Pagos {
+   (Realizar pago) as pagar
+   (Consultar saldo) as saldo
+
+   V -- pagar
+   V -- saldo
+   saldo .> pagar : extend
+}
+
+rectangle "Seleccionar método de pago" {
+  (Seleccionar método de pago) as seleccionar_metodo_pago
+
+  pagar <.. seleccionar_metodo_pago : include
+
+  seleccionar_metodo_pago <.. (Efectivo) : include
+  seleccionar_metodo_pago <.. (Tarjeta) : include
+  seleccionar_metodo_pago <.. (Invitado) : include
+}
+
+@enduml
+
