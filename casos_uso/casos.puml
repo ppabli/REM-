@@ -1,0 +1,78 @@
+@startuml
+left to right direction
+
+skinparam dpi 300
+skinparam linetype ortho
+skinparam nodesep 50
+skinparam ranksep 50
+
+skinparam default{
+  FontSize 12
+}
+
+skinparam arrowFontSize 10
+skinparam classFontSize 14
+
+skinparam arrowSize 10
+
+
+
+'''
+
+:V: as "Viajero"
+
+rectangle Usuario {
+    (Registrar usuario) as registrar
+    (Iniciar sesion) as iniciar_sesion
+    (Gestionar perfil) as perfil
+    (Gestionar métodos\nde pago) as gestionar_pagos
+    (Borrar usuario) as borrar_usuario
+    (Cerrar sesión) as cerrar_sesion
+
+    V -- registrar
+    V -- iniciar_sesion
+    V -- cerrar_sesion
+    V -- perfil
+    perfil <.. gestionar_pagos : extend
+    perfil <.. borrar_usuario : extend
+    cerrar_sesion <.. borrar_usuario : include
+}
+
+rectangle Pagos {
+    (Realizar pago) as pagar
+    (Registrar gasto) as registrar_gasto
+    (Eliminar gasto) as eliminar_gasto
+    (Adjuntar justificante\nde pago) as justificante
+    (Consultar saldo) as saldo
+    (Reclamar deuda) as deuda
+    
+    pagar -- V
+    registrar_gasto -- V
+    eliminar_gasto -- V
+    saldo -- V
+    deuda -- V
+    justificante <.. registrar_gasto : include
+}
+
+rectangle Grupos {
+    (Gestionar participantes\ndel grupo) as participantes
+    (Crear grupo de pago) as crear_grupo
+    (Eliminar grupo de pago) as eliminar_grupo
+    (Salir del grupo\nde pago) as salir_grupo
+
+    V -down- participantes
+    V -down- crear_grupo
+    V -down- eliminar_grupo
+    V -down- salir_grupo
+    salir_grupo <.. eliminar_grupo : extend
+}
+
+rectangle Otros {
+    (Mandar mensaje) as mensaje
+    (Publicar reseña) as reseña
+
+    mensaje -down- V
+    reseña -down- V
+}
+
+@enduml
