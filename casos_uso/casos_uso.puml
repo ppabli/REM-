@@ -1,0 +1,13 @@
+@startuml
+
+:Viajero: as v
+
+v -left- (Registrar gasto)
+v -up- (Gestionar Perfil)
+v -right- (Iniciar sesión)
+v -left- (Reclamar deuda)
+v -- (Gestionar participantes del grupo)
+v -right- (Publicar reseña)
+
+
+@enduml
